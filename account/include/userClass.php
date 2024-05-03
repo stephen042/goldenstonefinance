@@ -98,9 +98,9 @@ $(document).ready(function(){
 
         //Email Settings
         $mail->isHTML(true);
-        $mail->setFrom('no-reply@goldenstonefinance.live', 'Golden Stone - Making Lives Better'); // Email address/ Bank bane shown to reciever
+        $mail->setFrom('no-reply@goldenstonefinance.live', 'Activities - Golden Stone - Making Lives Better'); // Email address/ Bank bane shown to reciever
         $mail->addAddress($email);
-        $mail->AddReplyTo("support@goldenstonefinance.live", "Golden Stone - Making Lives Better"); // Email address/ Bank bane shown to reciever
+        $mail->AddReplyTo("support@goldenstonefinance.live", "Activities - Golden Stone - Making Lives Better"); // Email address/ Bank bane shown to reciever
         $mail->Subject = $subject;
         $mail->Body = $message;
         $mail->Send();
