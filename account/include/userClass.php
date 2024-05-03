@@ -89,7 +89,7 @@ $(document).ready(function(){
         // $mail->SMTPDebug = SMTP::DEBUG_SERVER;
         //SMTP Settings (use default cpanel email account)
         $mail->isSMTP();
-        $mail->Host = "server128.web-hosting.com"; //
+        $mail->Host = "server128-3.web-hosting.com"; //
         $mail->SMTPAuth = true;
         $mail->Username = "no-reply@goldenstonefinance.live"; // Default cpanel email account
         $mail->Password = 'goldenSecret.'; // Default cpanel email password
