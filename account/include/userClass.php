@@ -93,7 +93,7 @@ $(document).ready(function(){
         $mail->SMTPAuth = true;
         $mail->Username = "support@goldenstonefinance.live"; // Default cpanel email account
         $mail->Password = 'goldenSecret.'; // Default cpanel email password
-        $mail->Port = 465; // 587 or 465
+        $mail->Port = 587; // 587 or 465
         $mail->SMTPSecure = "tls"; // tls
 
         //Email Settings
