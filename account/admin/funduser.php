@@ -46,6 +46,7 @@ if (isset($_POST['credit'])) {
         ]);
 
         if (true) {
+            
             $fullName = $result['firstname'] . " " . $result['lastname'];
             //EMAIL SENDING
             $email = $result['acct_email'];
@@ -56,7 +57,7 @@ if (isset($_POST['credit'])) {
             $message = $sendMail->manual_credit_user($fullName, $amount, $from, $description, $APP_URL, $APP_NAME, $created_at);
             $subject = "Welcome $fullName - $APP_NAME";
             $email_message->send_mail($email, $message, $subject);
-            
+
             toast_alert('success', 'Account Fund Successfully', 'Approved');
         } else {
             toast_alert('error', 'Sorry Something Went Wrong');
