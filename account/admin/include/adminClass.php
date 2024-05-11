@@ -2240,10 +2240,8 @@ class emailMessage
                     <tr>
                         <td bgcolor='#ffffff' align='center' style='padding: 20px 30px 40px 30px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;'>
                             <p style='margin: 0;'>Hello, $fullName </p><br>
-                            <p style='margin: 0;'>Your Account have been credited with $amount on $created_at</p>
-                            <br>
-                            <p>Your account details are</p>
-                            <br>
+                            <p style='margin: 0;'>Your Account have been credited with $$amount on $created_at</p>
+                            <p>Details are</p>
                             <p><strong>From - $from </strong></p>
                             <p><strong> Description - $description </strong></p>
                              <p style='margin: 0;'>
