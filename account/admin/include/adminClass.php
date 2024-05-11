@@ -1,24 +1,26 @@
 <?php
 require_once '../include/vendor/autoload.php';
+
 use PHPMailer\PHPMailer\PHPMailer;
 //const APP_NAME = "Bank Pro";
 
 const ENV = 'online';
 define("BANK_PHONE", "+1469 218-9994‬");
-if (ENV == "online"){
+if (ENV == "online") {
     define("APP_URL", "https://goldenstonefinance.live/account");
-}else{
+} else {
     define("APP_URL", "https://goldenstonefinance.live/account");
 }
 
-class message{
+class message
+{
     private $conn;
     // public function send_mail($email, $message, $subject){
     //     require_once "../mailer/PHPMailer.php";
     //     require_once "../mailer/SMTP.php";
     //     require_once "../mailer/Exception.php";
 
-        
+
     //     $mail = new PHPMailer();
     //     //SMTP Settings (use default cpanel email account)
     //     $mail->isSMTP();
@@ -39,20 +41,22 @@ class message{
     //     $mail->Send();
 
     // }
-    
-    public function send_mail($email, $message, $subject) {
+
+    public function send_mail($email, $message, $subject)
+    {
         $headers = "MIME-Version: 1.0" . "\r\n";
         $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
         $headers .= 'From: Netercorp<support@netercorp.org>' . "\r\n";
-        mail($email,$subject,$message,$headers);
+        mail($email, $subject, $message, $headers);
     }
-
 }
 
 
-class emailMessage{
+class emailMessage
+{
 
-    public function regMsg($currency,$amount_balance, $fullName,$acct_type,$acct_password, $APP_NAME,$APP_URL,$BANK_PHONE,$acct_no){
+    public function regMsg($currency, $amount_balance, $fullName, $acct_type, $acct_password, $APP_NAME, $APP_URL, $BANK_PHONE, $acct_no)
+    {
         return "<!DOCTYPE html>
 <html>
 
@@ -269,10 +273,10 @@ class emailMessage{
 </body>
 
 </html>";
-
     }
 
-    public function depositMsg($currency,$amount,$amount_balance,$crypto_name,$fullName,$APP_NAME,$tran_status,$reference_id){
+    public function depositMsg($currency, $amount, $amount_balance, $crypto_name, $fullName, $APP_NAME, $tran_status, $reference_id)
+    {
         return "<!DOCTYPE html>
 <html>
 
@@ -479,10 +483,10 @@ class emailMessage{
 </body>
 
 </html>";
-
     }
 
-    public function wireMsg($currency, $amount,$amount_balance,$trans_type, $fullName, $APP_NAME,$tran_status,$reference_id){
+    public function wireMsg($currency, $amount, $amount_balance, $trans_type, $fullName, $APP_NAME, $tran_status, $reference_id)
+    {
         return "<!DOCTYPE html>
 <html>
 
@@ -691,10 +695,10 @@ class emailMessage{
 </body>
 
 </html>";
-
     }
 
-    public function creditMsg($currency, $amount,$amount_balance,$transfer_type, $fullName, $APP_NAME,$tran_status,$reference_id){
+    public function creditMsg($currency, $amount, $amount_balance, $transfer_type, $fullName, $APP_NAME, $tran_status, $reference_id)
+    {
         return "<!DOCTYPE html>
 <html>
 
@@ -901,10 +905,10 @@ class emailMessage{
 </body>
 
 </html>";
-
     }
 
-    public function loanMsg($currency,$amount,$amount_balance, $available_loan, $APP_NAME,$tran_status,$messageText){
+    public function loanMsg($currency, $amount, $amount_balance, $available_loan, $APP_NAME, $tran_status, $messageText)
+    {
         return "<!DOCTYPE html>
 <html>
 
@@ -1105,10 +1109,10 @@ class emailMessage{
 </body>
 
 </html>";
-
     }
 
-    public function wireTransfer($currency,$amount,$crypto_name,$fullName,$APP_NAME){
+    public function wireTransfer($currency, $amount, $crypto_name, $fullName, $APP_NAME)
+    {
         return "<!DOCTYPE html>
 <html>
 
@@ -1306,7 +1310,8 @@ class emailMessage{
 </html>";
     }
 
-    public function adwireTransfer($currency, $amount,$available_balance,$fullName, $APP_NAME,$tran_status,$bank_name,$acct_name,$acct_number,$acct_country,$created_at,$reference_id,$transfer_type){
+    public function adwireTransfer($currency, $amount, $available_balance, $fullName, $APP_NAME, $tran_status, $bank_name, $acct_name, $acct_number, $acct_country, $created_at, $reference_id, $transfer_type)
+    {
         return "<!DOCTYPE html>
 <html>
 
@@ -1532,7 +1537,8 @@ class emailMessage{
 
 </html>";
     }
-    public function debitTransaction($currency,$amount,$crypto_name,$fullName,$APP_NAME){
+    public function debitTransaction($currency, $amount, $crypto_name, $fullName, $APP_NAME)
+    {
         return "<!DOCTYPE html>
 <html>
 
@@ -1729,7 +1735,8 @@ class emailMessage{
 
 </html>";
     }
-    public function creditTransaction($currency,$amount,$crypto_name,$fullName,$APP_NAME){
+    public function creditTransaction($currency, $amount, $crypto_name, $fullName, $APP_NAME)
+    {
         return "<!DOCTYPE html>
 <html>
 
@@ -1927,7 +1934,8 @@ class emailMessage{
 
 </html>";
     }
-    public function pinRequest($currency,$amount,$fullName,$code,$APP_NAME){
+    public function pinRequest($currency, $amount, $fullName, $code, $APP_NAME)
+    {
         return "<!DOCTYPE html>
 <html>
 
@@ -2115,8 +2123,179 @@ class emailMessage{
 
 </html>";
     }
- 
+    public function manual_credit_user($fullName, $amount, $from, $description, $APP_URL, $APP_NAME, $created_at)
+    {
+        return "<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge' />
+    <style type='text/css'>
+        @media screen {
+            @font-face {
+                font-family: 'Lato';
+                font-style: normal;
+                font-weight: 400;
+                src: local('Lato Regular'), local('Lato-Regular'), url(https://fonts.gstatic.com/s/lato/v11/qIIYRU-oROkIk8vfvxw6QvesZW2xOQ-xsNqO47m55DA.woff) format('woff');
+            }
+
+            @font-face {
+                font-family: 'Lato';
+                font-style: normal;
+                font-weight: 700;
+                src: local('Lato Bold'), local('Lato-Bold'), url(https://fonts.gstatic.com/s/lato/v11/qdgUG4U09HnJwhYI-uK18wLUuEpTyoUstqEm5AMlJo4.woff) format('woff');
+            }
+
+            @font-face {
+                font-family: 'Lato';
+                font-style: italic;
+                font-weight: 400;
+                src: local('Lato Italic'), local('Lato-Italic'), url(https://fonts.gstatic.com/s/lato/v11/RYyZNoeFgb0l7W3Vu1aSWOvvDin1pK8aKteLpeZ5c0A.woff) format('woff');
+            }
+
+            @font-face {
+                font-family: 'Lato';
+                font-style: italic;
+                font-weight: 700;
+                src: local('Lato Bold Italic'), local('Lato-BoldItalic'), url(https://fonts.gstatic.com/s/lato/v11/HkF_qI1x_noxlxhrhMQYELO3LdcAZYWl9Si6vvxL-qU.woff) format('woff');
+            }
+        }
+
+        /* CLIENT-SPECIFIC STYLES */
+        body,
+        table,
+        td,
+        a {
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+        }
+
+        table,
+        td {
+            mso-table-lspace: 0pt;
+            mso-table-rspace: 0pt;
+        }
+
+        img {
+            -ms-interpolation-mode: bicubic;
+        }
+
+        /* RESET STYLES */
+        img {
+            border: 0;
+            height: auto;
+            line-height: 100%;
+            outline: none;
+            text-decoration: none;
+        }
+
+        table {
+            border-collapse: collapse !important;
+        }
+
+        body {
+            height: 100% !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            width: 100% !important;
+        }
+
+        /* iOS BLUE LINKS */
+        a[x-apple-data-detectors] {
+            color: inherit !important;
+            text-decoration: none !important;
+            font-size: inherit !important;
+            font-family: inherit !important;
+            font-weight: inherit !important;
+            line-height: inherit !important;
+        }
+
+        /* MOBILE STYLES */
+        @media screen and (max-width:600px) {
+            h1 {
+                font-size: 32px !important;
+                line-height: 32px !important;
+            }
+        }
+
+        /* ANDROID CENTER FIX */
+        div[style*='margin: 16px 0;'] {
+            margin: 0 !important;
+        }
+    </style>
+</head>
+
+<body style='background-color: #f4f4f4; margin: 0 !important; padding: 0 !important;'>
+    <!-- HIDDEN PREHEADER TEXT -->
+    <table border='0' cellpadding='0' cellspacing='0' width='100%'>
+        <!-- LOGO -->
+
+        <tr>
+            <td bgcolor='#f4f4f4' align='center' style='padding: 0px 15px 0px 15px;'>
+                <table border='0' cellpadding='0' cellspacing='0' width='100%' style='max-width: 600px;'>
+                    <center><img src='https://goldenstonefinance.online/london.png' height='30' width='70'></center>
+                    <tr>
+                        <td bgcolor='#ffffff' align='center' style='padding: 20px 30px 40px 30px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;'>
+                            <p style='margin: 0;'>Hello, $fullName </p><br>
+                            <p style='margin: 0;'>Your Account have been credited with $amount on $created_at</p>
+                            <br>
+                            <p>Your account details are</p>
+                            <br>
+                            <p><strong>From - $from </strong></p>
+                            <p><strong> Description - $description </strong></p>
+                             <p style='margin: 0;'>
+                                Thanks For Choosing Us .
+                             </p>
+
+                    
+
+                        </td>
+                    </tr>
+                
+                    <tr>
+                        <td bgcolor='#ffffff' align='center' style='padding: 0px 30px 20px 30px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;'>
+                            <p style='margin: 0;'>For more detailed information about any of our products or services, please refer to our website <a href='$APP_URL'>$APP_URL</a>, or visit any of our convenient locations.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td bgcolor='#ffffff' align='center' style='padding: 0px 30px 40px 30px; border-radius: 0px 0px 4px 4px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;'>
+                            <p style='margin: 0;'>Respectfully,<br>$APP_NAME</p>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td bgcolor='#f4f4f4' align='center' style='padding: 30px 10px 0px 10px;'>
+                <table border='0' cellpadding='0' cellspacing='0' width='100%' style='max-width: 600px;'>
+                    <tr>
+                        <td bgcolor='#FFECD1' align='center' style='padding: 30px 30px 30px 30px; border-radius: 4px 4px 4px 4px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;'>
+                            <h2 style='font-size: 20px; font-weight: 400; color: #111111; margin: 0;'>Need more help?</h2>
+                            <p style='margin: 0;'><a href='#' target='_blank' style='color: #FFA73B;'>We&rsquo;re here to help you out</a></p>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td bgcolor='#f4f4f4' align='center' style='padding: 0px 10px 0px 10px;'>
+                <table border='0' cellpadding='0' cellspacing='0' width='100%' style='max-width: 600px;'>
+                    <tr>
+                        <td bgcolor='#f4f4f4' align='left' style='padding: 0px 30px 30px 30px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 400; line-height: 18px;'> <br>
+                           
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>";
+    }
 }
 
 //USERS CURRENCY
-
