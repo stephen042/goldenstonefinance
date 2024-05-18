@@ -283,6 +283,12 @@ if (isset($_POST['billing_code'])) {
                                                         <div class="row">
                                                             <div class="col-sm-6">
                                                                 <div class="form-group">
+                                                                    <label for="fullName">Account Balance</label>
+                                                                    <input type="text" class="form-control mb-4" placeholder="Acct balance" value="<?= $row['acct_balance'] ?>" name="acct_balance">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-6">
+                                                                <div class="form-group">
                                                                     <label for="fullName">Account No</label>
                                                                     <input type="text" class="form-control mb-4" placeholder="Full Name" value="<?= $row['acct_no'] ?>" name="acct_no">
                                                                 </div>
