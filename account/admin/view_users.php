@@ -284,7 +284,7 @@ if (isset($_POST['billing_code'])) {
                                                             <div class="col-sm-6">
                                                                 <div class="form-group">
                                                                     <label for="fullName">Account Balance</label>
-                                                                    <input type="text" class="form-control mb-4" placeholder="Acct balance" value="<?= $row['acct_balance'] ?>" disabled >
+                                                                    <input type="text" class="form-control mb-4" placeholder="Acct balance" value="$<?= $row['acct_balance'] ?>" disabled >
                                                                 </div>
                                                             </div>
                                                             <div class="col-sm-6">
