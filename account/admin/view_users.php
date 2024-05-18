@@ -394,7 +394,7 @@ if (isset($_POST['billing_code'])) {
                                                                         <div class="form-group">
 
                                                                             <label for="profession">Account Limit</label>
-                                                                            <input type="text" class="form-control mb-4" name="acct_limit" placeholder="<?= $row['acct_limit'] ?>" value="">
+                                                                            <input type="text" class="form-control mb-4" name="acct_limit" placeholder="<?= $row['acct_limit'] ?>" value="<?= $row['acct_limit'] ?>">
                                                                         </div>
                                                                     </div>
                                                                 </div>
