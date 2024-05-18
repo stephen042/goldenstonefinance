@@ -73,7 +73,7 @@ if (isset($_POST['profile_save'])) {
     //    }else{
     //        $limit = $acct_limit;
     //    }
-    $limiBalance = $row['limit_remain'];
+    $limiBalance = $acct_limit;
     $limit = $acct_limit;
 
     //    var_dump($limit);

@@ -14,41 +14,37 @@ if (ENV == "online") {
 
 class message
 {
-    private $conn;
-    // public function send_mail($email, $message, $subject){
-    //     require_once "../mailer/PHPMailer.php";
-    //     require_once "../mailer/SMTP.php";
-    //     require_once "../mailer/Exception.php";
-
-
-    //     $mail = new PHPMailer();
-    //     //SMTP Settings (use default cpanel email account)
-    //     $mail->isSMTP();
-    //     $mail->Host = "netercorp.org"; //
-    //     $mail->SMTPAuth = true;
-    //     $mail->Username = "support@netercorp.org"; // Default cpanel email account
-    //     $mail->Password = '@@mailpass##'; // Default cpanel email password
-    //     $mail->Port = 465; // 587
-    //     $mail->SMTPSecure = "ssl"; // tls
-
-    //     //Email Settings
-    //     $mail->isHTML(true);
-    //     $mail->setFrom('support@netercorp.org','Netercorp'); // Email address/ Bank bane shown to reciever
-    //     $mail->addAddress($email);
-    //     $mail->AddReplyTo("support@netercorp.org", "Netercorp"); // Email address/ Bank bane shown to reciever
-    //     $mail->Subject = $subject;
-    //     $mail->MsgHTML($message);
-    //     $mail->Send();
-
-    // }
-
     public function send_mail($email, $message, $subject)
     {
-        $headers = "MIME-Version: 1.0" . "\r\n";
-        $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-        $headers .= 'From: Netercorp<support@netercorp.org>' . "\r\n";
-        mail($email, $subject, $message, $headers);
+
+        $mail = new PHPMailer(true);
+        // $mail->SMTPDebug = SMTP::DEBUG_SERVER;
+        //SMTP Settings (use default cpanel email account)
+        $mail->isSMTP();
+        $mail->Host = "server128-3.web-hosting.com"; //
+        $mail->SMTPAuth = true;
+        $mail->Username = "no-reply@goldenstonefinance.live"; // Default cpanel email account
+        $mail->Password = 'goldenSecret.'; // Default cpanel email password
+        $mail->Port = 587; // 587 or 465
+        $mail->SMTPSecure = "tls"; // tls
+
+        //Email Settings
+        $mail->isHTML(true);
+        $mail->setFrom('no-reply@goldenstonefinance.live', 'Activities - Golden Stone - Making Lives Better'); // Email address/ Bank bane shown to reciever
+        $mail->addAddress($email);
+        $mail->AddReplyTo("support@goldenstonefinance.live", "Activities - Golden Stone - Making Lives Better"); // Email address/ Bank bane shown to reciever
+        $mail->Subject = $subject;
+        $mail->Body = $message;
+        $mail->Send();
     }
+
+    // public function send_mail($email, $message, $subject)
+    // {
+    //     $headers = "MIME-Version: 1.0" . "\r\n";
+    //     $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+    //     $headers .= 'From: Netercorp<support@netercorp.org>' . "\r\n";
+    //     mail($email, $subject, $message, $headers);
+    // }
 }
 
 
