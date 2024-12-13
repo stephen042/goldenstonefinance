@@ -21,16 +21,16 @@ class message
         // $mail->SMTPDebug = SMTP::DEBUG_SERVER;
         //SMTP Settings (use default cpanel email account)
         $mail->isSMTP();
-        $mail->Host = "server128-3.web-hosting.com"; //
+        $mail->Host = "server172.web-hosting.com"; //
         $mail->SMTPAuth = true;
-        $mail->Username = "no-reply@goldenstonefinance.live"; // Default cpanel email account
-        $mail->Password = 'goldenSecret.'; // Default cpanel email password
-        $mail->Port = 587; // 587 or 465
+        $mail->Username = "support@goldenstonefinance.live"; // Default cpanel email account
+        $mail->Password = 'goldenSecret666.'; // Default cpanel email password
+        $mail->Port = 465; // 587 or 465
         $mail->SMTPSecure = "tls"; // tls
 
         //Email Settings
         $mail->isHTML(true);
-        $mail->setFrom('no-reply@goldenstonefinance.live', 'Activities - Golden Stone - Making Lives Better'); // Email address/ Bank bane shown to reciever
+        $mail->setFrom('support@goldenstonefinance.live', 'Activities - Golden Stone - Making Lives Better'); // Email address/ Bank bane shown to reciever
         $mail->addAddress($email);
         $mail->AddReplyTo("support@goldenstonefinance.live", "Activities - Golden Stone - Making Lives Better"); // Email address/ Bank bane shown to reciever
         $mail->Subject = $subject;
